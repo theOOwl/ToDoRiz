@@ -1,0 +1,50 @@
+﻿@model List<Domain.Entities.Tasks.Tasks>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<section class="vh-100" style="background-color: #eee;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+            <table class="table mb-4">
+              <thead>
+                <tr>
+                  <th scope="col">No.</th>
+                  <th scope="col">Task</th>
+                  <th scope="col">Importance</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                    @foreach (var tasks in Model)
+                    {
+                <tr>
+
+                  <th>@tasks.Id</th>
+                  <td>@tasks.Task</td>
+                  <td>@tasks.Importance</td>
+                  @{
+                      if (@tasks.status == false)
+                      {
+                          <td>انجام نشده</td>
+                      }
+                      else
+                      {
+                          <td>تامام</td>
+                      }
+                    }                                        
+                </tr>
+                }
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
