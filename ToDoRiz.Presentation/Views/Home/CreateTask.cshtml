@@ -2,24 +2,26 @@
 @{
     ViewData["Title"] = "CreateTask";
 }
-<h1>@ViewData["Title"]</h1>
-
-<p>Use this page to detail your site's privacy policy.</p>
 <h4 class="text-center my-3 pb-3">To Do Riz</h4>
 
             <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"  method="post" asp-action="CreateTask" asp-controller="Home">
               <div class="col-12">
                 <div class="form-outline">
+                 <label class="form-label" for="form1">چه کاری باید انجام بدی؟</label>
                   <input type="text" id="form1" class="form-control" asp-for="Task" required="required" />
-                  <label class="form-label" for="form1">تسک خودتو وارد کن </label>
-                </div>
+                </div><br/>
                  <div class="form-outline">
-                  <input type="text" id="form1" class="form-control" asp-for="Importance" required="required" />
-                  <label class="form-label" for="form1">بنویس که چقدر برات مهمه</label>
-                </div>
-              </div>
+                  <label class="form-label" for="form1">چقدر برات مهمه؟</label><br/>
+                  <input type="radio" id="form1" value="زیاد" asp-for="Importance" required="required" />
+                  <label for="html">زیاد</label><br>
+                  <input type="radio" id="form1" value="متوسط" asp-for="Importance" required="required" />
+                  <label for="html">متوسط</label><br>
+                  <input type="radio" id="form1" value="کم" asp-for="Importance" required="required" />
+                  <label for="html">کم</label><br>
+                </div><br/>
+              </div><br/>
 
-              <div class="col-12">
-                <button type="submit" class="btn btn-primary">ذخیره</button>
+              <div class="col-240">
+                <button type="submit" class="btn btn-primary">ثبت</button>
               </div>
             </form>
