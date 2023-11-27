@@ -33,8 +33,19 @@ public class TasksRepo : ITasksRepo
         await _context.SaveChangesAsync();
     }
 
+    public async Task<Tasks> FindTaskById(int taskId)
+    {
+        return await _context.Tasks.FirstOrDefaultAsync(p => p.Id == taskId);
+    }
+
     public List<Tasks> GetListOfTasks()
     {
         return _context.Tasks.ToList();
+    }
+
+    public async Task UpdateTask(Tasks task)
+    {
+        _context.Tasks.Update(task);
+        await _context.SaveChangesAsync();
     }
 }

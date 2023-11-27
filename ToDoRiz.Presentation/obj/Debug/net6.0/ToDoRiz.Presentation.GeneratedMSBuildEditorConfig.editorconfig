@@ -19,8 +19,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVUYXNrLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/theOOwl/source/repos/ToDoRiz/ToDoRiz.Presentation/Views/Home/DeleteTask.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEZWxldGVUYXNrLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/theOOwl/source/repos/ToDoRiz/ToDoRiz.Presentation/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/theOOwl/source/repos/ToDoRiz/ToDoRiz.Presentation/Views/Home/MakeTaskDone.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNYWtlVGFza0RvbmUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/theOOwl/source/repos/ToDoRiz/ToDoRiz.Presentation/Views/Shared/_ValidationScriptsPartial.cshtml]
