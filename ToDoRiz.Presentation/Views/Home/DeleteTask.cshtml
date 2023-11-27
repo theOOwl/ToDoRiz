@@ -1,0 +1,35 @@
+﻿@model Domain.Entities.Tasks.Tasks
+@{
+    ViewData["Title"] = "DeleteTask";
+}
+<section  style="background-color: black;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+            <p align="center" style="font-family:'Maiandra GD';font-size:xx-large;color:darkorange;margin-top:100px"> To Do Riz </p>
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
+            <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"  method="post" asp-action="DeleteTask" asp-controller="Home">
+              <div class="col-12">
+                <div class="form-outline">
+                 <label class="form-label" for="form1" style="font-family:Calibri;font-size:larger">کد</label>
+                  <input type="text" readonly id="form1" class="form-control" asp-for="Id"/>
+                  <label class="form-label" for="form1" style="font-family:Calibri;font-size:larger">شرح</label>
+                  <input type="text" readonly id="form1" class="form-control" asp-for="Task" />
+                  <label class="form-label" for="form1" style="font-family:Calibri;font-size:larger">اولویت</label>
+                  <input type="text" readonly id="form1" class="form-control" asp-for="Importance" />
+                 <label class="form-label" for="form1" style="font-family:Calibri;font-size:larger">وضعیت</label>
+                  <input type="text" readonly id="form1" class="form-control" asp-for="status" />
+                </div><br/>
+                                 <label class="form-label" for="form1" style="font-family:Calibri;font-size:larger">ایا از حذف این رکورد اطمینان دارید؟</label>
+                                <button type="submit" style="font-family:Calibri;background-color:chocolate" class="btn btn-primary">بله</button>
+              </div><br/>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

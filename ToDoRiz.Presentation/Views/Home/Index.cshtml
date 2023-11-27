@@ -1,42 +1,76 @@
 ﻿@model List<Domain.Entities.Tasks.Tasks>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "برنامه‌ریز تودوریز";
 }
 
 
-<section class="vh-100" style="background-color: #eee;">
+<section  style="background-color: black">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
+            <p align="center" style="font-family:'Maiandra GD';font-size:xx-large;color:darkorange;margin-top:100px"> To Do Riz </p>
       <div class="col col-lg-9 col-xl-7">
         <div class="card rounded-3">
           <div class="card-body p-4">
             <table class="table mb-4">
               <thead>
-                <tr>
-                  <th scope="col">آیدی</th>
+                <tr align="center" style="font-family:Calibri;font-size:x-large">
+                  <th scope="col">کد</th>
                   <th scope="col">شرح</th>
                   <th scope="col">میزان اهمیت</th>
                   <th scope="col">وضعیت</th>
+                  <th scope="col">حذف</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody align="center">
                     @foreach (var tasks in Model)
                     {
+                       
                 <tr>
-
-                  <th>@tasks.Id</th>
-                  <td>@tasks.Task</td>
-                  <td>@tasks.Importance</td>
+                  <td style="font-family:Calibri">@tasks.Id</td>
+                  <td style="font-family:Calibri">@tasks.Task</td>
+                  @{
+                      if (@tasks.Importance == "زیاد" && @tasks.status == false)
+                      {
+                                   <td style="font-family:Calibri;background-color: red;color:white">@tasks.Importance</td>
+                      }
+                      else if (@tasks.Importance == "متوسط" && @tasks.status == false)
+                      {
+                                   <td style="font-family:Calibri;background-color: yellow">@tasks.Importance</td>
+                      }
+                      else if (@tasks.Importance == "کم" && @tasks.status == false)
+                      {
+                                   <td style="font-family:Calibri;background-color: green;color:white">@tasks.Importance</td>
+                      }
+                      else if (@tasks.Importance == "زیاد" && @tasks.status == true)
+                      {
+                                   <td style="font-family:Calibri">@tasks.Importance</td>
+                      }
+                      else if (@tasks.Importance == "متوسط" && @tasks.status == true)
+                      {
+                                   <td style="font-family:Calibri">@tasks.Importance</td>
+                      }
+                      else if (@tasks.Importance == "کم" && @tasks.status == true)
+                      {
+                                   <td style="font-family:Calibri">@tasks.Importance</td>
+                      }
+                    }  
                   @{
                       if (@tasks.status == false)
                       {
-                          <td>انجام نشده</td>
+                                   <td style="font-family:Calibri;font-style:italic"> انجام نشده <i class="fa-sharp fa-solid fa-xmark" style="color: #e30d0d;"></i></td>
                       }
                       else
                       {
-                          <td>تامام</td>
+                                   <td style="font-family:Calibri"> تامام  <i class="fa-sharp fa-solid fa-check" style="color: #037c21;"></i> </td>
                       }
-                    }                                        
+                    }   
+                  <td><a asp-action="DeleteTask"
+                         asp-controller="Home"
+                         asp-route-taskId="@tasks.Id"><i class="fa-solid fa-trash" style="color: #ff0000;"></i></a>                   
+                      <a asp-action="MakeTaskDone"
+                         asp-controller="Home"
+                         asp-route-taskId="@tasks.Id">    <i class="fa-solid fa-pen-to-square" style="color: #a6b918;"></i>
+                      </a></td>
                 </tr>
                 }
               </tbody>

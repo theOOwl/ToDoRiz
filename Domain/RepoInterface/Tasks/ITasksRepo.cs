@@ -10,5 +10,8 @@ namespace Domain.RepoInterface;
         Task CreateTask(Tasks task);
         List<Tasks> GetListOfTasks();
         Task DeleteTask(Tasks task);
-    }
+        Task UpdateTask(Tasks task);
+        Task<Tasks> FindTaskById(int taskId);
+
+}
 

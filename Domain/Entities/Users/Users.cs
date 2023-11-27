@@ -11,6 +11,7 @@ namespace Domain.Entities.Users
         public int Id { get; set; }
         public string? FullName { get; set; }
         public int Mobile { get; set; }
+        public string Password { get; set; }
     }
 
 }

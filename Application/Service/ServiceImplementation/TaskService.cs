@@ -38,9 +38,19 @@ namespace Application.Service.ServiceImplementation
             await _TasksRepo.DeleteTask(task);
         }
 
+        public async Task<Tasks> FindTaskById(int taskId)
+        {
+            return await _TasksRepo.FindTaskById(taskId);
+        }
+
         public List<Tasks> ListOfTasks()
         {
             return _TasksRepo.GetListOfTasks();
+        }
+
+        public async Task UpdateTask(Tasks task)
+        {
+            await _TasksRepo.UpdateTask(task);
         }
     }
 }

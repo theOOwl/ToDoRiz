@@ -13,5 +13,8 @@ namespace Application.Service.ServiceInterface
         Task CreateTask(TasksDTOs task);
         List<Tasks> ListOfTasks();
         Task DeleteTask (Tasks task);
+        Task UpdateTask(Tasks task);
+        Task<Tasks> FindTaskById(int taskId);
+
     }
 }

@@ -1,27 +1,38 @@
 ﻿@model Application.DTO.TasksDTOs.TasksDTOs
 @{
-    ViewData["Title"] = "CreateTask";
+    ViewData["Title"] = "افزودن";
 }
-<h4 class="text-center my-3 pb-3">To Do Riz</h4>
-
+<section  style="background-color: black;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+            <p align="center" style="font-family:'Maiandra GD';font-size:xx-large;color:darkorange;margin-top:100px"> To Do Riz </p>
+      <div class="col col-lg-9 col-xl-7">
+        <div class="card rounded-3">
+          <div class="card-body p-4">
             <form class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2"  method="post" asp-action="CreateTask" asp-controller="Home">
               <div class="col-12">
                 <div class="form-outline">
-                 <label class="form-label" for="form1">چه کاری باید انجام بدی؟</label>
+                 <label class="form-label" for="form1" style="font-family:Calibri;font-size:larger">۱- چه کاری باید انجام بدی؟</label>
                   <input type="text" id="form1" class="form-control" asp-for="Task" required="required" />
                 </div><br/>
                  <div class="form-outline">
-                  <label class="form-label" for="form1">چقدر برات مهمه؟</label><br/>
+                  <label class="form-label" for="form1" style="font-family:Calibri;font-size:larger">۲- چقدر برات مهمه؟ </label><br/>
                   <input type="radio" id="form1" value="زیاد" asp-for="Importance" required="required" />
-                  <label for="html">زیاد</label><br>
-                  <input type="radio" id="form1" value="متوسط" asp-for="Importance" required="required" />
-                  <label for="html">متوسط</label><br>
-                  <input type="radio" id="form1" value="کم" asp-for="Importance" required="required" />
-                  <label for="html">کم</label><br>
+                  <label style="font-family:Calibri" for="html">زیاد</label><br>
+                <input type="radio" id="form1" style="font-family:Calibri" value="متوسط" asp-for="Importance" required="required" />  
+                  <label style="font-family:Calibri" for="html">متوسط</label><br>
+                  <input type="radio" id="form1" style="font-family:Calibri" value="کم" asp-for="Importance" required="required" />
+                  <label style="font-family:Calibri" for="html">کم</label><br>
                 </div><br/>
+                                <button type="submit" style="font-family:Calibri;background-color:chocolate" class="btn btn-primary">ثبت</button>
               </div><br/>
 
-              <div class="col-240">
-                <button type="submit" class="btn btn-primary">ثبت</button>
-              </div>
             </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
