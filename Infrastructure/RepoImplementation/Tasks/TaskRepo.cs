@@ -24,7 +24,7 @@ public class TasksRepo : ITasksRepo
     public async Task CreateTask(Tasks task)
     {
         
-        await _context.AddAsync(task);
+        await _context.Tasks.AddAsync(task);
         await _context.SaveChangesAsync();  
     }
     public async Task DeleteTask(Tasks task)

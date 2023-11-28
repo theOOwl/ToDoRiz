@@ -16,10 +16,12 @@ namespace ToDoRiz.Presentation
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<ToDoRizDb>();
             builder.Services.AddScoped<ITasksRepo, TasksRepo>();
+            builder.Services.AddScoped<IUsersRepo, UserRepo>();
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped<ITaskService, TaskService>();
+            builder.Services.AddScoped<IUserService, UserService>();
 
             var app = builder.Build();
 
@@ -40,7 +42,7 @@ namespace ToDoRiz.Presentation
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Account}/{action=Register}/{id?}");
 
             app.Run();
         }
