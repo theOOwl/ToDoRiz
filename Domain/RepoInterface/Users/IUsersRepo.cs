@@ -10,5 +10,6 @@ namespace Domain.RepoInterface
     public interface IUsersRepo
     {
         Task CreateUser(Users user);
+        Task<Users> FindUserByMobile(string mobile);
     }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rEGcoQ90XaEtZlmeDs+k5Z5U+uVaUbGjg1+IznebSX8=",
+  "Hash": "hzBbFxgYOgWbSV6N0vnNPjtmAmHucOdEaG++6XvUUkY=",
   "Source": "ToDoRiz.Presentation",
   "BasePath": "_content/ToDoRiz.Presentation",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\theOOwl\\source\\repos\\ToDoRiz\\ToDoRiz.Presentation\\wwwroot\\img\\image_04.jpg",
+      "SourceId": "ToDoRiz.Presentation",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\theOOwl\\source\\repos\\ToDoRiz\\ToDoRiz.Presentation\\wwwroot\\",
+      "BasePath": "_content/ToDoRiz.Presentation",
+      "RelativePath": "img/image_04.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\image_04.jpg"
     },
     {
       "Identity": "C:\\Users\\theOOwl\\source\\repos\\ToDoRiz\\ToDoRiz.Presentation\\wwwroot\\js\\site.js",

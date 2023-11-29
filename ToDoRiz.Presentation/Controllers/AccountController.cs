@@ -1,4 +1,5 @@
-﻿using Application.DTO.UsersDTO;
+﻿using Application.DTO.RegisterDTO;
+using Application.DTO.UsersDTO;
 using Application.Service.ServiceInterface;
 using Domain.Entities.Users;
 using Microsoft.AspNetCore.Mvc;
@@ -33,10 +34,20 @@ namespace ToDoRiz.Presentation.Controllers
             return View();
         }
         [HttpPost, ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(UserDTOs userDTOs)
+        public async Task<IActionResult> Register(RegisterDTOs registerDTOs)
         {
-            await _userService.CreateUser(userDTOs);
-            return RedirectToAction("Index", "Home");
+            if (ModelState.IsValid)
+            {
+                var mobile = await _userService.FindUserByMobile(registerDTOs.Mobile.Trim());
+
+                if (mobile == null)
+                {
+                    //Add User To DataBase
+                    await _userService.CreateUser(registerDTOs);
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View();
         }
         #endregion
         #region LogOut

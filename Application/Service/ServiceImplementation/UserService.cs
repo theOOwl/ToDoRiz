@@ -1,4 +1,6 @@
-﻿using Application.DTO.UsersDTO;
+﻿using Application.DTO.RegisterDTO;
+using Application.DTO.UsersDTO;
+using Application.Security;
 using Application.Service.ServiceInterface;
 using Domain.Entities.Users;
 using Domain.RepoInterface;
@@ -19,18 +21,23 @@ namespace Application.Service.ServiceImplementation
             _userRepo = userRepo;   
         }
         #endregion
-        public async Task CreateUser(UserDTOs userDTOs)
+        public async Task CreateUser(RegisterDTOs registerDTOs)
         {
             //O_Mapping
             Users model = new Users()
             {
-                Id = userDTOs.Id,
-                FullName = userDTOs.FullName,
-                Mobile = userDTOs.Mobile,
-                Password = userDTOs.Password,
+                Id = registerDTOs.Id,
+                FullName = registerDTOs.FullName,
+                Mobile = registerDTOs.Mobile.Trim(),
+                Password = PasswordHelper.MD5Hash(registerDTOs.Password)
             };
             //
             await _userRepo.CreateUser(model);
+        }
+
+        public async Task<Users> FindUserByMobile(string userMobile)
+        {
+           return await _userRepo.FindUserByMobile(userMobile);
         }
     }
 }

@@ -16,8 +16,11 @@ namespace Application.DTO.RegisterDTO
             [Required]
             public string? Mobile { get; set; }
             [Required]
+            [DataType(DataType.Password)]
             public string? Password { get; set; }
             [Required]
+            [DataType(DataType.Password)]
+            [Compare("Password", ErrorMessage = "کلمه عبور و تکرار آن با یکدیگر متفاوت هستند")]
             public string? RePassword { get; set; }
     }
 }

@@ -21,5 +21,10 @@ namespace Infrastructure.RepoImplementation
             await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<Users> FindUserByMobile(string mobile)
+        {
+           return _context.Users.FirstOrDefault(p => p.Mobile == mobile);
+        }
     }
 }
