@@ -16,6 +16,8 @@ namespace Application.DTO.RegisterDTO
             [Required]
             public string? Mobile { get; set; }
             [Required]
+            //[MinLength(5, ErrorMessage = "کلمه عبور باید حداقل ۵ کارکتر داشته باشد")]    
+            [StringLength(10)]
             [DataType(DataType.Password)]
             public string? Password { get; set; }
             [Required]

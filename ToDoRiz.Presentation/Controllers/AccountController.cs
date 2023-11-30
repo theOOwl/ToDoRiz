@@ -46,6 +46,7 @@ namespace ToDoRiz.Presentation.Controllers
                     await _userService.CreateUser(registerDTOs);
                     return RedirectToAction("Index", "Home");
                 }
+                     
             }
             return View();
         }
