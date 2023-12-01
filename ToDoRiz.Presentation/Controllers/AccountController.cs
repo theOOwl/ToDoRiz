@@ -1,4 +1,5 @@
-﻿using Application.DTO.RegisterDTO;
+﻿using Application.DTO.LoginDTO;
+using Application.DTO.RegisterDTO;
 using Application.DTO.UsersDTO;
 using Application.Service.ServiceInterface;
 using Domain.Entities.Users;
@@ -21,11 +22,21 @@ namespace ToDoRiz.Presentation.Controllers
         {
             return View();
         }
-        //[HttpPost, ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Login()
-        //{
-        //    return RedirectToAction(nameof(Index));
-        //}
+        [HttpPost, ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginDTOs loginDTOs)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userService.FindUserByMobile(loginDTOs.Mobile.Trim());
+
+                if (user == null)
+                {
+
+                }
+
+            }
+            return RedirectToAction("Index" , "Home" );
+        }
         #endregion
         #region Register
         [HttpGet]
@@ -46,6 +57,7 @@ namespace ToDoRiz.Presentation.Controllers
                     await _userService.CreateUser(registerDTOs);
                     return RedirectToAction("Index", "Home");
                 }
+                     
             }
             return View();
         }
