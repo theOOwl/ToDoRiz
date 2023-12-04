@@ -3,6 +3,7 @@ using Application.Service.ServiceInterface;
 using Domain.RepoInterface;
 using Infrastructure.RepoImplementation;
 using Infrastructure.ToDoRiz;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace ToDoRiz.Presentation
 {
@@ -23,6 +24,26 @@ namespace ToDoRiz.Presentation
             builder.Services.AddScoped<ITaskService, TaskService>();
             builder.Services.AddScoped<IUserService, UserService>();
 
+
+            #region Authentication
+
+            builder.Services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            })
+                // Add Cookie settings
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Account/Login";
+                    options.LogoutPath = "/Account/Logout";
+                    options.ExpireTimeSpan = TimeSpan.FromDays(30);
+                });
+
+            #endregion
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -38,6 +59,7 @@ namespace ToDoRiz.Presentation
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

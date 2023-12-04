@@ -21,9 +21,12 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
+                         @if (!User.Identity.IsAuthenticated)
+                         {
                           <li dir="ltr" class="nav-item">
                             <a style="font-family:Calibri;font-size:x-large" class="nav-link text-dark" asp-controller="Account" asp-action="Register"><i class="fa-solid fa-door-closed fa-2xl"></i></a>
                         </li>
+                         }
                     </ul>
                 </div>
             </div>

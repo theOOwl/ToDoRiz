@@ -3,7 +3,10 @@ using Application.DTO.RegisterDTO;
 using Application.DTO.UsersDTO;
 using Application.Service.ServiceInterface;
 using Domain.Entities.Users;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace ToDoRiz.Presentation.Controllers
 {
@@ -29,13 +32,29 @@ namespace ToDoRiz.Presentation.Controllers
             {
                 var user = await _userService.FindUserByMobile(loginDTOs.Mobile.Trim());
 
-                if (user == null)
+                if (user != null)
                 {
+                    var claims = new List<Claim>
+                    {
+
+                          new (ClaimTypes.MobilePhone, user.Mobile),
+                          new (ClaimTypes.Name, user.FullName),
+                    };
+
+                    var claimIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var principal = new ClaimsPrincipal(claimIdentity);
+
+                    var authProps = new AuthenticationProperties();
+ /*                   authProps.IsPersistent = model.Remember*/Me;
+
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProps);
+
+                    return RedirectToAction("Index", "Home");
 
                 }
-
             }
-            return RedirectToAction("Index" , "Home" );
+            TempData["ErrorMessage"] = "کاربری با مشخصات وارد شده یافت نشده است.";
+            return View();
         }
         #endregion
         #region Register
@@ -63,6 +82,11 @@ namespace ToDoRiz.Presentation.Controllers
         }
         #endregion
         #region LogOut
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login", "Account");
+        }
 
         #endregion
 
