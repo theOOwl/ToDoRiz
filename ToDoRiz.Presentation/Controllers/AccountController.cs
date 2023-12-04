@@ -45,7 +45,7 @@ namespace ToDoRiz.Presentation.Controllers
                     var principal = new ClaimsPrincipal(claimIdentity);
 
                     var authProps = new AuthenticationProperties();
- /*                   authProps.IsPersistent = model.Remember*/Me;
+                    //authProps.IsPersistent = model.RememberMe;
 
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, authProps);
 
