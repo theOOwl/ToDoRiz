@@ -19,17 +19,24 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                          <li dir="ltr" class="nav-item">
-                            <a style="font-family:Calibri;font-size:x-large" class="nav-link text-dark" asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-door-open fa-2xl"></i></a>
-                        </li>
-                        <li class="nav-item">
-                            <a style="font-family:Calibri;font-size:x-large" class="nav-link text-dark" asp-controller="Home" asp-action="Index">مشاهده کارها</a>
-                        </li>
-                        <li class="nav-item">
-                            <a style="font-family:Calibri;font-size:x-large" class="nav-link text-dark" asp-controller="Home" asp-action="CreateTask">افزودن + </a>
-                        </li>
-                    </ul>
+                   @if (User.Identity.IsAuthenticated)
+                   {
+                        <ul class="navbar-nav flex-grow-1">
+
+                        
+                            <li dir="ltr" class="nav-item">
+                                <a style="font-family:Calibri;font-size:x-large" class="nav-link text-dark" asp-controller="Account" asp-action="Logout"><i class="fa-solid fa-door-open fa-2xl"></i></a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="font-family:Calibri;font-size:x-large" class="nav-link text-dark" asp-controller="Home" asp-action="Index">مشاهده کارها</a>
+                            </li>
+                            <li class="nav-item">
+                                <a style="font-family:Calibri;font-size:x-large" class="nav-link text-dark" asp-controller="Home" asp-action="CreateTask">افزودن + </a>
+                            </li>
+
+                        </ul>
+                            <i class="fa-solid fa-user"></i> <p> @User.Identity.Name</p>
+                   }
                 </div>
             </div>
         </nav>
